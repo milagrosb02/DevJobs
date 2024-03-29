@@ -1,4 +1,5 @@
-<form class="md:w-1/2 space-y-6">
+    <!-- con este wire submit conecto el componente con el formulario -->
+<form class="md:w-1/2 space-y-6" wire:submit.prevent='crearVacante'>
 
      <!-- Titulo vacante -->
      <div>
@@ -7,11 +8,19 @@
         <x-text-input id="titulo" 
             class="block mt-1 w-full" 
             type="text" 
-            name="titulo" :value="old('titulo')"
+            wire:model="titulo"
+            :value="old('titulo')"
             placeholder="Titulo de Vacante" 
          />
 
-        <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
+
+         <!-- mensaje de error -->
+         @error('titulo')
+            <!-- llamo a componente de mostrar alerta -->
+            <!-- le paso el valor dinamico de message -->
+             <livewire:mostrar-alerta :message="$message">
+         @enderror
+
     </div>
 
 
@@ -23,13 +32,28 @@
 
         <select
                 id="salario"
-                name="salario"
+                wire:model="salario"
                 class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
-            
-        </select>    
 
-        <x-input-error :messages="$errors->get('salario')" class="mt-2" />
+        <!-- Opciones de Salarios -->
+        <!-- Obtengo los registros del seeder -->
+        <option>-- Seleccione --</option>
+
+        <!-- Recorro las opciones -->
+        @foreach ( $salarios as $salario )
+            <option value="{{ $salario->id }}">{{$salario->salario}}</option>
+        @endforeach
+            
+        </select> 
+        
+        <!-- mensaje de error -->
+        @error('salario')
+        <!-- llamo a componente de mostrar alerta -->
+        <!-- le paso el valor dinamico de message -->
+         <livewire:mostrar-alerta :message="$message">
+     @enderror
+
     </div>
 
 
@@ -40,13 +64,29 @@
 
         <select
                 id="categoria"
-                name="categoria"
+                wire:model="categoria"
                 class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
-            
-        </select>    
 
-        <x-input-error :messages="$errors->get('categoria')" class="mt-2" />
+        <!-- Opciones de Categoria -->
+        <!-- Obtengo los registros del seeder -->
+        <option>-- Seleccione --</option>
+
+        <!-- Recorro las opciones -->
+        @foreach ( $categorias as $categoria )
+            <option value="{{ $categoria->id }}">{{$categoria->categoria}}</option>
+        @endforeach
+            
+        </select>   
+        
+        
+        <!-- mensaje de error -->
+        @error('categoria')
+        <!-- llamo a componente de mostrar alerta -->
+        <!-- le paso el valor dinamico de message -->
+         <livewire:mostrar-alerta :message="$message">
+     @enderror
+
     </div>
 
 
@@ -58,11 +98,18 @@
         <x-text-input id="empresa" 
             class="block mt-1 w-full" 
             type="text" 
-            name="empresa" :value="old('empresa')"
+            wire:model="empresa" :value="old('empresa')"
             placeholder="Empresa: ej. Netflix, Uber, Spotify..." 
          />
 
-        <x-input-error :messages="$errors->get('empresa')" class="mt-2" />
+
+         <!-- mensaje de error -->
+         @error('empresa')
+            <!-- llamo a componente de mostrar alerta -->
+            <!-- le paso el valor dinamico de message -->
+             <livewire:mostrar-alerta :message="$message">
+         @enderror
+
     </div>
 
 
@@ -74,10 +121,17 @@
         <x-text-input id="ultimo_dia" 
             class="block mt-1 w-full" 
             type="date" 
-            name="ultimo_dia" :value="old('ultimo_dia')"
+            wire:model="ultimo_dia" :value="old('ultimo_dia')"
          />
 
-        <x-input-error :messages="$errors->get('ultimo_dia')" class="mt-2" />
+
+         <!-- mensaje de error -->
+         @error('ultimo_dia')
+            <!-- llamo a componente de mostrar alerta -->
+            <!-- le paso el valor dinamico de message -->
+             <livewire:mostrar-alerta :message="$message">
+         @enderror
+
     </div>
 
 
@@ -87,12 +141,18 @@
         <x-input-label for="descripcion" :value="__('Descripcion de puesto')" />
 
         <textarea
-            name="descripcion"
+            wire:model="descripcion"
             placeholder="Descripcion general del puesto, experiencia"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full h-72"
         ></textarea>
 
-        <x-input-error :messages="$errors->get('descripcion')" class="mt-2" />
+        <!-- mensaje de error -->
+        @error('descripcion')
+        <!-- llamo a componente de mostrar alerta -->
+        <!-- le paso el valor dinamico de message -->
+         <livewire:mostrar-alerta :message="$message">
+     @enderror
+
     </div>
 
 
@@ -104,10 +164,29 @@
         <x-text-input id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
-            name="imagen"
+            wire:model="imagen"
+            accept="image/*"
          />
 
-        <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
+
+        <!-- agregando previw de la imagen -->
+        <div class="my-5 w-96">
+
+            @if ($imagen)
+                Imagen:
+                <img src="{{ $imagen->temporaryUrl() }}"/>
+            @endif
+
+        </div>    
+
+
+         <!-- mensaje de error -->
+         @error('imagen')
+            <!-- llamo a componente de mostrar alerta -->
+            <!-- le paso el valor dinamico de message -->
+             <livewire:mostrar-alerta :message="$message">
+         @enderror
+
     </div>
 
 
