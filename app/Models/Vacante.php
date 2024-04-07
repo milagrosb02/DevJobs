@@ -9,6 +9,11 @@ class Vacante extends Model
 {
     use HasFactory;
 
+    // transformo el campo dia a una fecha (y no a string)
+    protected $casts = [
+        'ultimo_dia' => 'datetime'
+      ];
+
     protected $fillable = ['titulo', 
                             'salario_id', 
                             'categoria_id', 
