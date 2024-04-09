@@ -66,14 +66,11 @@ class CrearVacante extends Component
     }
 
 
-
     public function render()
     {
         // CONSULTAR DB
         // Traigo todos los registros
         $salarios = Salario::all();
-
-
         $categorias = Categoria::all();
 
 

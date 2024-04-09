@@ -22,13 +22,16 @@
 
                 <div class="flex flex-col gap-3 mt-5 md:flex-row items-strench md:mt-0">
 
+
                     <a class="px-4 py-2 text-xs font-bold text-center text-white rounded-lg bg-purple-900 dark:bg-white dark:text-black" href="#">
                         Candidatos
                     </a>
 
-                    <a class="px-4 py-2 text-xs font-bold text-center text-white bg-blue-800 rounded-lg dark:bg-blue dark:text-white" href="#">
+
+                    <a class="px-4 py-2 text-xs font-bold text-center text-white bg-blue-800 rounded-lg dark:bg-blue dark:text-white" href=" {{ route('vacantes.edit', $vacante->id) }}">
                         Editar
                     </a>
+
 
                     <a class="px-4 py-2 text-xs font-bold text-center text-white bg-red-600 rounded-lg dark:bg-red dark:text-white" href="#">
                         Eliminar
@@ -36,7 +39,9 @@
 
                 </div>
             </div>
+
         @empty
+         <!-- si esta vacio, imprime el error. Esto actua como un else ( o sea un caso contrario )-->
             <p class="p-3 text-sm text-center text-gray-600">No hay vacantes que mostrar</p>
         @endforelse
     </div>

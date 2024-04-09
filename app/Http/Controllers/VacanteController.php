@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vacante;
 use Illuminate\Http\Request;
 
 class VacanteController extends Controller
@@ -39,9 +40,14 @@ class VacanteController extends Controller
     
 
 
-    public function edit(string $id)
+    public function edit(Vacante $vacante)
     {
-        //
+        // esto busca en el archivo del policy
+        $this->authorize('update', $vacante);
+
+        return view('vacantes.edit', [
+            'vacante' => $vacante
+        ]);
     }
 
     
