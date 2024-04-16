@@ -21,20 +21,16 @@ class VacanteController extends Controller
         return view('vacantes.create');
     }
 
-    
-
-
-    public function store(Request $request)
-    {
-        //
-    }
 
     
 
 
-    public function show(string $id)
+    public function show(Vacante $vacante)
     {
-        //
+        return view('vacantes.show', 
+        [
+            'vacante' => $vacante
+        ]);
     }
 
     
@@ -51,18 +47,4 @@ class VacanteController extends Controller
     }
 
     
-
-
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    
-
-    
-    public function destroy(string $id)
-    {
-        //
-    }
 }

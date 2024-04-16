@@ -8,7 +8,7 @@
                 
                 <div class="space-y-3">
 
-                    <a href="#" class="text-xl font-bold">
+                    <a href="{{ route('vacantes.show', $vacante->id) }}" class="text-xl font-bold">
                         {{ $vacante->titulo }}
                     </a>
 
@@ -33,9 +33,13 @@
                     </a>
 
 
-                    <a class="px-4 py-2 text-xs font-bold text-center text-white bg-red-600 rounded-lg dark:bg-red dark:text-white" href="#">
+                    {{-- el $emit lo que hace es emitir un evento de prueba --}}
+                    <button 
+                        type="button"
+                        wire:click="$dispatch('mostrarAlerta', {{$vacante->id}})"
+                        class="px-4 py-2 text-xs font-bold text-center text-white bg-red-600 rounded-lg dark:bg-red dark:text-white" >
                         Eliminar
-                    </a>
+                    </button>
 
                 </div>
             </div>
@@ -50,3 +54,43 @@
         {{ $vacantes->links() }}
     </div>
 </div>
+
+
+{{-- colocando estilos desde las directivas del archivo app.blade --}}
+@push('scripts')
+    <script 
+        src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    </script>
+
+
+<script>
+    document.addEventListener('livewire:initialized', () => {
+        @this.on('mostrarAlerta', (vacanteId) => {
+            Swal.fire({
+                title: '¿Eliminar Vacante?',
+                text: "Una Vacante eliminada no se puede recuperar:(",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // ELiminar vacante
+                    // Se debe emitir un evento desde el componente
+                    @this.call('eliminarVacante',vacanteId);
+                    Swal.fire(
+                        'Se eliminó la Vacante',
+                        'Eliminado correctamente',
+                        'success'
+                    )
+                }
+            })
+
+        });
+    });
+</script> 
+
+
+@endpush

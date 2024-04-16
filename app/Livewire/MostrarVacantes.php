@@ -7,6 +7,13 @@ use Livewire\Component;
 
 class MostrarVacantes extends Component
 {
+    protected $listeners = ['eliminarVacante'];
+
+    public function eliminarVacante(Vacante $vacante) // le paso el id de la vacante
+    {
+        $vacante->delete();
+    }
+
     public function render()
     {   
         // consulto las vacantes del usuario autenticado
