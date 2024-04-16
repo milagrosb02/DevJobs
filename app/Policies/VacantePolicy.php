@@ -11,7 +11,7 @@ class VacantePolicy
     
     public function viewAny(User $user)
     {
-        //
+        return $user->rol === "2";
     }
 
     /**
@@ -27,7 +27,7 @@ class VacantePolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->rol === "2";
     }
 
     /**
