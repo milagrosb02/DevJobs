@@ -10,7 +10,7 @@ class VacanteController extends Controller
    
     public function index()
     {   
-        // le paso la funcion del polici junto al modelo
+        // le paso la funcion del policy junto al modelo
         $this->authorize('viewAny', Vacante::class);
         return view('vacantes.index');
     }
