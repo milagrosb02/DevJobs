@@ -54,4 +54,14 @@
     @endguest
     
 
+    {{-- cannot: no puede crear--}}
+    @cannot('create', App\Models\Vacante::class)
+
+       {{-- renderizo el componente --}}
+        {{-- visible para los devs --}}
+    <livewire:postular-vacante /> 
+    @endcannot
+
+    
+
 </div>

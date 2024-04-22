@@ -14,7 +14,7 @@ class VacantePolicy
     // Este método determina si un usuario puede ver la lista de vacantes.
     public function viewAny(User $user)
     {
-        return $user->rol === "2";
+        return $user->rol === 2;
     }
 
 
@@ -28,7 +28,7 @@ class VacantePolicy
     // Este método determina si un usuario puede crear una nueva vacante
     public function create(User $user)
     {
-        return $user->rol === "2";
+        return $user->rol === 2;
     }
 
     
