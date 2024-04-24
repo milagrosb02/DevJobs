@@ -59,7 +59,7 @@
 
        {{-- renderizo el componente --}}
         {{-- visible para los devs --}}
-    <livewire:postular-vacante /> 
+    <livewire:postular-vacante :vacante="$vacante"/> 
     @endcannot
 
     
