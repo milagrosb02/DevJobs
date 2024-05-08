@@ -23,7 +23,9 @@
                 <div class="flex flex-col gap-3 mt-5 md:flex-row items-strench md:mt-0">
 
 
-                    <a class="px-4 py-2 text-xs font-bold text-center text-white rounded-lg bg-purple-900 dark:bg-white dark:text-black" href="#">
+                    <a class="px-4 py-2 text-xs font-bold text-center text-white rounded-lg bg-purple-900 dark:bg-white dark:text-black" 
+                        href="{{ route('candidatos.index', $vacante) }}">
+                        {{ $vacante->candidatos->count() }}
                         Candidatos
                     </a>
 
