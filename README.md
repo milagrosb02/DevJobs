@@ -40,7 +40,7 @@
 
 Esto te llevara a la pantalla principal. Puedes observar que hay un buscador y unos filtros por categoria y salario mensual, estos mismos son publicados por los reclutadores. 
 
-## Iniciar Sesion / Registro ##
+## Registro ##
  - Primero debes iniciar el servicio de mailhog. Como explique en el paso 6.3 y 6.4.
  - Si no tienes una cuenta, debes hacer click en la parte superior arriba de la derecha donde dice "Crear Cuenta". Rellena con tus datos y luego crea la cuenta. Puedes elegir roles: el de reclutador o el developer.
  - Una vez completado tus datos. Se mostrara un cuadro para enviar un email de confirmación al correo escrito. Debes hacer clic en enviar email.
@@ -52,3 +52,24 @@ Esto te llevara a la pantalla principal. Puedes observar que hay un buscador y u
 # Si escogiste el rol de developer #
 - Esto te redireccionara al dashboard principal, al mismo que al inicial la aplicacion. Aqui podras ver las vacantes publicadas por los reclutadores y podras postularte a una.
 
+# Para publicar una vacante (Recruiter) #
+- Puedes deslizarte a la opción del lado derecho de la navegación donde dice "Crear Vacante".
+- Alli veras un formulario donde puedes rellenarlo y también puedes subir una imagen relacionada al puesto de trabajo. Luego clic en crear vacante.
+- Ya puedes ver la vacante dada de alta como reclutador. Puedes modificarla y eliminarla.
+
+# Para postularse a una vacante (Developer) #
+- En el dashboard principal, veras las vacantes de trabajo disponibles. Clic en "Ver Vacante".
+- Se mostrara la información sobre el puesto. Más abajo hay una sección para enviar cv.
+- IMPORTANTE: antes de enviar un CV el servicio de mailhog debe estar corriendo asi será enviado al reclutador.
+- Elige un documento de tu galeria que sea en formato PDF y haz clic en "Postularme". Probablemente debas refrescar el navegador ya que a la primera no suele funcionar.
+
+# Ver Postulación de Vacante (Recruiter) #
+- En el navegador con la sesión abierta del reclutador, veras una notificación, tanto como en el nombre de la persona como en la sección de la vacante.
+- Clic en "Ver candidato" (Si deseas verlo desde la sección "Mis Vacantes") o también puedes hacer clic en el icono con un número que aparece al lado de tu nombre como recruiter. Y asi veras la información.
+
+# Resources #
+- Usuarios
+- Salarios
+- Candidatos
+- Vacantes
+- Categorias
